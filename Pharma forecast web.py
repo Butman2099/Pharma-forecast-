@@ -206,15 +206,14 @@ if st.session_state.data is not None and 'DATE' in st.session_state.data.columns
                             
                             # Show trend calculation details
                             with st.expander("Показати деталі розрахунку"):
-                                st.write(f"Формула логарифмічного тренду: y = 1307.0931 + 315.7310 * log(x)")
-                                st.write(f"Часовий індекс вхідного місяця ({input_date.strftime('%Y-%m-%d')}): {time_index}")
+                                st.write(f"Застосовані фактори та їх значення")
                                 for idx, column in enumerate(input_df.columns):
                                     value = input_df.iloc[0, idx]
                                     st.write(f"{column} = {value}")
                         else:
                             # Display prediction without trend adjustment
                             st.header("Прогнозні результати")
-                            st.markdown(f"### Прогнозовані продажі для {forecast_date.strftime('%Y-%m-%d')}: **{prediction[0]:.4f}**")
+                            st.markdown(f"### Прогнозовані об'єми продажів для {forecast_date.strftime('%Y-%m-%d')}: **{prediction[0]:.4f}**")
                             st.warning("Неможливо застосувати поправку на тренд, оскільки колонка «Time index» відсутня у даних.")
                         
                         # Visualize the prediction
