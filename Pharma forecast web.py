@@ -183,7 +183,7 @@ if st.session_state.data is not None and 'DATE' in st.session_state.data.columns
                             time_index = input_row['Time index']
                             
                             # Calculate trend adjustment
-                            st.subheader("Прогноз із поправкою на тренд")
+                            st.subheader("Прогнозний результат")
                             
                             # Applying logarithmic trend formula: y = 1307.0931 + 315.7310*log(x)
                             trend_value = 1307.0931 + 315.7310 * np.log(time_index)
@@ -200,7 +200,7 @@ if st.session_state.data is not None and 'DATE' in st.session_state.data.columns
                           
                             with col:
                                 st.metric(
-                                    label=f"Прогноз із поправкою на тренд",
+                                    label=f"Прогноз обсягів продажів",
                                     value=f"{adjusted_prediction:.4f}"
                                 )
                             
