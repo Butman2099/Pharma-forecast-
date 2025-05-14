@@ -127,7 +127,7 @@ if st.session_state.data is not None and 'DATE' in st.session_state.data.columns
         closest_date_mask = st.session_state.data['DATE'] == input_date
         
         if closest_date_mask.any():
-            st.success(f"Використовуємо дані з: {input_date.strftime('%Y-%m-%d')} для прогнозування продажів на: {forecast_date.strftime('%Y-%m-%d')}")
+            st.success(f"Використовуємо дані промо кампаній {input_date.strftime('%Y-%m-%d')} та ціни на препарат за {forecast_date.strftime('%Y-%m-%d')} для прогнозування продажів на {forecast_date.strftime('%Y-%m-%d')}")
             input_row = st.session_state.data[closest_date_mask].iloc[0]
             
             # Display the input data for the selected date
