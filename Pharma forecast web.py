@@ -136,7 +136,7 @@ if st.session_state.data is not None and 'DATE' in st.session_state.data.columns
             # Option to use CSV values or enter custom values
             use_csv_values = st.radio(
                 "Вхідне джерело даних:",
-                ["Використати значення із CSV", "Вввести значення до полів"],
+                ["Використати значення із CSV", "Ввести значення до полів"],
                 horizontal=True
             )
             
@@ -146,14 +146,6 @@ if st.session_state.data is not None and 'DATE' in st.session_state.data.columns
                 with cols[i % 2]:
                     # Determine appropriate decimal places based on the value
                     value = input_row[feature]
-                    #if abs(value) < 1:
-                        #decimal_places = 3
-                    #elif abs(value) < 10:
-                        #decimal_places = 2
-                    #elif abs(value) < 100:
-                        #decimal_places = 1
-                    #else:
-                        #decimal_places = 0
                     
                     # Create number input field (disabled if using CSV values)
                     input_features[feature] = st.number_input(
@@ -217,19 +209,19 @@ if st.session_state.data is not None and 'DATE' in st.session_state.data.columns
                             st.warning("Неможливо застосувати поправку на тренд, оскільки колонка «Time index» відсутня у даних.")
                         
                         # Visualize the prediction
-                        st.subheader("Використані фактори")
-                        fig, ax = plt.subplots(figsize=(10, 5))
+                        #st.subheader("Використані фактори")
+                        #fig, ax = plt.subplots(figsize=(10, 5))
                         
                         # Create simple bar chart of input features
-                        feature_names = list(input_features.keys())
-                        feature_values = list(input_features.values())
+                        #feature_names = list(input_features.keys())
+                        #feature_values = list(input_features.values())
                         
-                        ax.bar(feature_names, feature_values)
-                        ax.set_xticklabels(feature_names, rotation=45, ha='right')
-                        ax.set_title(f"Вхідні значення факторів для {input_date.strftime('%Y-%m-%d')}")
-                        ax.set_ylabel("Значення")
+                        #ax.bar(feature_names, feature_values)
+                        #ax.set_xticklabels(feature_names, rotation=45, ha='right')
+                        #ax.set_title(f"Вхідні значення факторів для {input_date.strftime('%Y-%m-%d')}")
+                        #ax.set_ylabel("Значення")
                         
-                        st.pyplot(fig)
+                        #st.pyplot(fig)
                         
                         # Additional feature importance if available
                         if hasattr(st.session_state.model, 'feature_importances_'):
